@@ -34,7 +34,7 @@ class CreatePropertyService {
     });
 
     if (!userExist) {
-      throw new Error('Usuario não existe');
+      throw new Error('User does not exists');
     }
 
     const properties = await propertiesRepository.create({
