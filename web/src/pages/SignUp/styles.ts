@@ -5,12 +5,6 @@ import backgroundImg from '../../assets/home.png';
 export const Container = styled.section`
   height: 100vh;
   display: flex;
-
-  @media (min-width: 1100px) {
-    height: 100vh;
-    display: flex;
-    align-items: stretch;
-  }
 `;
 
 const appearFromLeft = keyframes`
@@ -31,15 +25,6 @@ export const Content = styled.div`
   flex-direction: column;
 
   width: 100vw;
-
-  @media (min-width: 1100px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    place-content: center;
-    width: 100%;
-    max-width: 700px;
-  }
 `;
 
 export const AnimationContainer = styled.div`
@@ -49,7 +34,6 @@ export const AnimationContainer = styled.div`
   place-content: center;
   background: #ddf3f5;
   width: 100vw;
-  height: 100vh;
 
   animation: ${appearFromLeft} 1s;
 
@@ -96,9 +80,12 @@ export const AnimationContainer = styled.div`
     &:hover {
       color: ${shade(0.2, '#A6DCEF')};
     }
+  }
 
-    svg {
-      margin-right: 1rem;
+  @media (min-width: 1100px) {
+    form {
+      width: 36rem;
+      height: 100vh;
     }
   }
 `;

@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
-import { FiMail, FiLock, FiLogIn } from 'react-icons/fi';
+import { FiMail, FiLock, FiLogIn, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Container, Content, AnimationContainer, Background } from './styles';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import logoImg from '../../assets/imob.png';
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   function handleSubmit() {
@@ -22,8 +22,9 @@ const SignIn: React.FC = () => {
           <AnimationContainer>
             <Form ref={formRef} onSubmit={handleSubmit}>
               <img src={logoImg} alt="Logo" />
-              <h1>Faça seu login</h1>
+              <h1>Faça seu cadastro</h1>
 
+              <Input name="name" icon={FiUser} placeholder="Nome" />
               <Input name="email" icon={FiMail} placeholder="E-mail" />
 
               <Input
@@ -33,15 +34,10 @@ const SignIn: React.FC = () => {
                 placeholder="Senha"
               />
 
-              <Button type="submit">Entrar</Button>
+              <Button type="submit">Cadastrar</Button>
 
-              <Link to="/forgot-password"> Esqueci minha senha</Link>
+              <Link to="/"> Voltar para login</Link>
             </Form>
-
-            <Link to="/signup">
-              <FiLogIn />
-              Criar conta
-            </Link>
           </AnimationContainer>
         </Content>
         <Background />
@@ -50,4 +46,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
