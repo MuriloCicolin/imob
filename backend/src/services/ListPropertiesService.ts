@@ -8,7 +8,7 @@ interface Request {
 }
 
 class ListPropertiesService {
-  public async execute({ uf, type, city }: Request): Promise<Property> {
+  public async execute({ uf, type, city }: Request): Promise<Property[]> {
     const propertiesRepository = getRepository(Property);
 
     const searchProperties = await propertiesRepository.find({

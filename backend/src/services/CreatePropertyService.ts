@@ -1,6 +1,7 @@
 import { getRepository } from 'typeorm';
 import User from '../models/User';
 import Property from '../models/Property';
+import AppError from '../errors/AppError';
 
 interface Request {
   address: string;
@@ -34,7 +35,7 @@ class CreatePropertyService {
     });
 
     if (!userExist) {
-      throw new Error('User does not exists');
+      throw new AppError('User does not exists');
     }
 
     const properties = await propertiesRepository.create({
