@@ -6,6 +6,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 
 import Dashboard from '../pages/Dashboard';
+import CreateProperties from '../pages/CreateProperties';
 
 const Routes: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Routes: React.FC = () => {
       <Route path="/signup" component={SignUp} />
 
       <Route path="/dashboard" component={Dashboard} isPrivate />
+      <Route path="/create" component={CreateProperties} isPrivate />
     </Switch>
   );
 };

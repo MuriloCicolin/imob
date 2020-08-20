@@ -82,7 +82,7 @@ export const ContainerButton = styled.div`
   }
 `;
 
-export const RegisterButton = styled.button`
+export const CreateButton = styled.button`
   border: 0;
   background: #0a97b0;
   padding: 2.5rem;
@@ -91,10 +91,15 @@ export const RegisterButton = styled.button`
   margin: 0 auto;
   cursor: pointer;
   outline: 0;
-  color: #ffffff;
+  color: #7169c1;
   font-weight: 500;
   font-size: 2rem;
   transition: 0.2 background-color;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 
   &:hover {
     background: ${shade(0.2, '#0a97b0')};

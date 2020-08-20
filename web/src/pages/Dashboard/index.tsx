@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiPower } from 'react-icons/fi';
 import { useAuth } from '../../context/AuthContext';
 
@@ -11,7 +12,7 @@ import {
   ButtonIcon,
   BackgroundImage,
   ContainerButton,
-  RegisterButton,
+  CreateButton,
   ListButton,
 } from './styles';
 
@@ -37,9 +38,9 @@ const Dashboard: React.FC = () => {
       </h1>
 
       <ContainerButton>
-        <RegisterButton>
-          <span>Cadastrar Imóveis</span>
-        </RegisterButton>
+        <CreateButton>
+          <Link to="/create">Cadastrar Imóveis</Link>
+        </CreateButton>
 
         <ListButton>
           <span>Procurar Imóveis</span>
