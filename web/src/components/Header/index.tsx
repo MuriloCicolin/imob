@@ -7,10 +7,16 @@ import { Container, HeaderContainer, TopBarContainer } from './styles';
 
 interface HeaderProps {
   title?: string;
+  descriptionTitle?: string;
   description?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, description, children }) => {
+const Header: React.FC<HeaderProps> = ({
+  title,
+  description,
+  descriptionTitle,
+  children,
+}) => {
   return (
     <Container>
       <HeaderContainer>
@@ -18,14 +24,14 @@ const Header: React.FC<HeaderProps> = ({ title, description, children }) => {
           <FiArrowLeft size={25} color="#FFF" />
         </Link>
 
-        <h2>Cadastrar Imóveis</h2>
+        <h2>{title}</h2>
         <img src={logoImg} alt="logo" />
       </HeaderContainer>
 
       <TopBarContainer>
         <div>
-          <h2>Aqui é o caminho para fazer o cadastro de imóveis</h2>
-          <p>Preencha o formulário para completar o cadastro</p>
+          <h2>{descriptionTitle}</h2>
+          <p>{description}</p>
         </div>
       </TopBarContainer>
     </Container>

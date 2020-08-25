@@ -34,11 +34,13 @@ const Dashboard: React.FC = () => {
       <BackgroundImage src={bgImage} />
 
       <h1>
-        Seja Bem-vindo, <br /> O que deseja fazer ?
-      </h1>
+        Seja Bem-vindo, <br />
+{' '}
+O que deseja fazer ?
+</h1>
 
       <ContainerButton>
-        <CreateButton>
+        <CreateButton type="button">
           <Link to="/create">Cadastrar Imóveis</Link>
         </CreateButton>
 

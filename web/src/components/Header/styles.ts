@@ -47,6 +47,7 @@ export const TopBarContainer = styled.div`
       width: 30rem;
       text-align: center;
       margin: 1rem 0;
+      font-size: 1.6rem;
     }
   }
 `;
