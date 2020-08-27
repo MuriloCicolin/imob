@@ -10,7 +10,7 @@ export const HeaderContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   color: #fff;
   padding: 2rem;
 
@@ -21,33 +21,5 @@ export const HeaderContainer = styled.nav`
   img {
     width: 8rem;
     height: 8rem;
-  }
-`;
-
-export const TopBarContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  background: #1b6ca8;
-  height: 20rem;
-
-  > div {
-    width: 40rem;
-    align-self: center;
-
-    color: #fff;
-
-    h2 {
-      font-weight: 500;
-      margin: 1rem 0;
-    }
-
-    p {
-      width: 30rem;
-      text-align: center;
-      margin: 1rem 0;
-      font-size: 1.6rem;
-    }
   }
 `;

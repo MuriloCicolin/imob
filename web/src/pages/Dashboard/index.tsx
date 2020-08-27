@@ -12,8 +12,6 @@ import {
   ButtonIcon,
   BackgroundImage,
   ContainerButton,
-  CreateButton,
-  ListButton,
 } from './styles';
 
 const Dashboard: React.FC = () => {
@@ -34,19 +32,19 @@ const Dashboard: React.FC = () => {
       <BackgroundImage src={bgImage} />
 
       <h1>
-        Seja Bem-vindo, <br />
+        Seja Bem-vindo,
 {' '}
-O que deseja fazer ?
+<br />
+        {' '}
+        O que deseja fazer ?
 </h1>
 
       <ContainerButton>
-        <CreateButton type="button">
-          <Link to="/create">Cadastrar Imóveis</Link>
-        </CreateButton>
+        <Link to="/create">Cadastrar Imóveis</Link>
 
-        <ListButton>
-          <span>Procurar Imóveis</span>
-        </ListButton>
+        <Link className="search" to="/">
+          Procurar Imóveis
+        </Link>
       </ContainerButton>
 
       <span>Total de 250 móveis cadastrados</span>

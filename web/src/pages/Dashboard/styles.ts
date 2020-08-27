@@ -74,64 +74,40 @@ export const ContainerButton = styled.div`
   flex-direction: column;
   margin-top: 2rem;
 
+  a {
+    width: 30rem;
+    height: 10.4rem;
+    border-radius: 0.8rem;
+    background: #0a97b0;
+    margin: 0.8rem auto;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    outline: 0;
+    font-size: 2rem;
+    transition: 0.2 background-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: ${shade(0.2, '#0a97b0')};
+    }
+  }
+
+  .search {
+    background: #1b6ca8;
+    &:hover {
+      background: ${shade(0.2, '#1b6ca8')};
+    }
+  }
+
   @media (min-width: 1100px) {
     flex-direction: row;
     align-items: center;
     margin: 0 auto;
     max-width: 700px;
-  }
-`;
-
-export const CreateButton = styled.button`
-  border: 0;
-  background: #0a97b0;
-  padding: 2.5rem;
-  width: 30rem;
-  border-radius: 0.8rem;
-  margin: 0 auto;
-  cursor: pointer;
-  outline: 0;
-  color: #7169c1;
-  font-weight: 500;
-  font-size: 2rem;
-  transition: 0.2 background-color;
-
-  a {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  &:hover {
-    background: ${shade(0.2, '#0a97b0')};
-  }
-
-  @media (min-width: 1100px) {
-    margin-top: 3rem;
-  }
-`;
-
-export const ListButton = styled.button`
-  border: 0;
-  background: #1b6ca8;
-  padding: 2.5rem;
-  width: 30rem;
-  border-radius: 0.8rem;
-  outline: 0;
-  margin: 0 auto;
-  cursor: pointer;
-  margin-top: 2rem;
-
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 2rem;
-
-  transition: 0.2 background-color;
-
-  &:hover {
-    background: ${shade(0.2, '#1b6ca8')};
-  }
-
-  @media (min-width: 1100px) {
-    margin-top: 3rem;
   }
 `;
