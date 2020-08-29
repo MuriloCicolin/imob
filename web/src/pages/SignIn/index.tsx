@@ -60,13 +60,14 @@ const SignIn: React.FC = () => {
               <img src={logoImg} alt="Logo" />
               <h1>Faça seu login</h1>
 
-              <Input name="email" icon={FiMail} placeholder="E-mail" />
+              <Input name="email" icon={FiMail} placeholder="E-mail" mask="" />
 
               <Input
                 name="password"
                 icon={FiLock}
                 type="password"
                 placeholder="Senha"
+                mask=""
               />
 
               <Button type="submit">Entrar</Button>

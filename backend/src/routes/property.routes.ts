@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import multer from 'multer';
 import * as Yup from 'yup';
+import { classToClass } from 'class-transformer';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
-
 import CreatePropertyService from '../services/CreatePropertyService';
 
 import uploadConfig from '../config/upload';
@@ -85,7 +85,7 @@ propertiesRouter.get('/', ensureAuthenticated, async (request, response) => {
     uf,
   });
 
-  return response.json(properties);
+  return response.json(classToClass(properties));
 });
 
 propertiesRouter.get('/all', ensureAuthenticated, async (request, response) => {
