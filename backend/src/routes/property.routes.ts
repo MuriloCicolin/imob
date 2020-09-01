@@ -93,7 +93,7 @@ propertiesRouter.get('/all', ensureAuthenticated, async (request, response) => {
 
   const properties = await listAllPropertiesService.execute();
 
-  return response.json(properties);
+  return response.json(classToClass(properties));
 });
 
 export default propertiesRouter;
