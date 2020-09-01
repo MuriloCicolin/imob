@@ -20,7 +20,7 @@ interface InputProps extends Props {
 }
 
 const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const { fieldName, defaultValue, error, registerField } = useField(name);
@@ -29,11 +29,11 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
     setIsFocused(true);
   }, []);
 
-  // const handleInputBlur = useCallback(() => {
-  //   setIsFocused(false);
+  const handleInputBlur = useCallback(() => {
+    setIsFocused(false);
 
-  //   setIsFilled(!!inputRef.current?.value);
-  // }, []);
+    setIsFilled(!!inputRef.current?.value);
+  }, []);
 
   useEffect(() => {
     registerField({
@@ -52,9 +52,10 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
   return (
     <Container isFilled={isFilled} isFocused={isFocused} isErrored={!!error}>
       {Icon && <Icon size={20} />}
-      <InputMask
+      <input
         onFocus={handleInputFocus}
         defaultValue={defaultValue}
+        onBlur={handleInputBlur}
         ref={inputRef}
         {...rest}
       />
