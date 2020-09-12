@@ -42,7 +42,7 @@ const Dashboard: React.FC = () => {
       <ContainerButton>
         <Link to="/create">Cadastrar Imóveis</Link>
 
-        <Link className="search" to="/">
+        <Link className="search" to="/search">
           Procurar Imóveis
         </Link>
       </ContainerButton>

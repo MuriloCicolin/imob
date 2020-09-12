@@ -2,7 +2,7 @@ import React, { useRef, useCallback } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
-import { FiMail, FiLock, FiUser } from 'react-icons/fi';
+import { FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import getValidationErrors from '../../utils/getValidationErrors';
@@ -76,7 +76,10 @@ const SignUp: React.FC = () => {
 
             <Button type="submit">Cadastrar</Button>
 
-            <Link to="/"> Voltar para login</Link>
+            <Link to="/">
+              <FiArrowLeft />
+              Voltar para login
+            </Link>
           </Form>
         </AnimationContainer>
       </Content>

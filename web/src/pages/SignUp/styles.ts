@@ -55,8 +55,9 @@ export const AnimationContainer = styled.div`
     flex-direction: column;
     align-items: center;
 
-    a {
+    /* a {
       display: flex;
+      align-items: center;
       text-decoration: none;
       margin-top: 2rem;
       color: #000;
@@ -64,10 +65,10 @@ export const AnimationContainer = styled.div`
 
     a:hover {
       color: ${shade(0.2, '#A6DCEF')};
-    }
+    } */
   }
 
-  > a {
+  a {
     text-decoration: none;
     margin-top: 4rem;
     display: block;
@@ -79,6 +80,10 @@ export const AnimationContainer = styled.div`
 
     &:hover {
       color: ${shade(0.2, '#A6DCEF')};
+    }
+
+    > svg {
+      margin-right: 1rem;
     }
   }
 

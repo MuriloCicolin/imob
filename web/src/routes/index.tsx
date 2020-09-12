@@ -7,6 +7,7 @@ import SignUp from '../pages/SignUp';
 
 import Dashboard from '../pages/Dashboard';
 import CreateProperties from '../pages/CreateProperties';
+import SearchProperties from '../pages/SearchProperties';
 
 const Routes: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Routes: React.FC = () => {
 
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/create" component={CreateProperties} isPrivate />
+      <Route path="/search" component={SearchProperties} isPrivate />
     </Switch>
   );
 };
