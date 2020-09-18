@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 import Header from '../../components/Header';
 
 import { Container, FormContainer } from './styles';
@@ -7,7 +8,15 @@ import { SelectInput } from '../../components/Select/styles';
 import Button from '../../components/Button';
 import PropertiesList from '../PropertiesList';
 
+interface IRequest {
+  uf: string;
+  city: string;
+  // type: 'Venda' | 'Aluguel';
+}
+
 const SearchProperties: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
+
   const optionUf = [
     {
       label: 'PR',
@@ -25,15 +34,15 @@ const SearchProperties: React.FC = () => {
     { label: 'Venda', value: 'Venda' },
   ];
 
-  const handleSubmit = useCallback(() => {
-    console.log('handlesubmit');
+  const handleSubmit = useCallback(async (data: IRequest) => {
+    console.log(data);
   }, []);
 
   return (
     <Container>
       <Header title="Procure seu imóvel" />
       <FormContainer>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} ref={formRef}>
           <fieldset>
             <legend>Selecione as opções abaixo</legend>
             <SelectInput name="uf" options={optionUf} placeholder="Estado" />
@@ -49,7 +58,7 @@ const SearchProperties: React.FC = () => {
             />
           </fieldset>
           <div className="button">
-            <Button>Buscar</Button>
+            <Button type="submit">Buscar</Button>
           </div>
         </Form>
       </FormContainer>
