@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, CardProperty } from './styles';
+import formatValue from '../../utils/formatValue';
 
 interface IProperties {
   address: string;
@@ -18,7 +19,19 @@ interface IProps {
 const PropertiesList: React.FC<IProps> = ({ property }) => {
   return (
     <Container>
-      {property ? <h3>{property.address}</h3> : <h3>Não existe imóveis</h3>}
+      <CardProperty>
+        <img src={property.property_url} alt="" />
+        <section>
+          <div>
+            <p>{property.address}</p>
+            <p>
+              Nº
+              {property.number}
+            </p>
+            <p>{formatValue(property.value)}</p>
+          </div>
+        </section>
+      </CardProperty>
     </Container>
   );
 };

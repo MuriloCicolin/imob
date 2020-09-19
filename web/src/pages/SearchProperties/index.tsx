@@ -3,7 +3,7 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import Header from '../../components/Header';
 
-import { Container, FormContainer } from './styles';
+import { Container, FormContainer, GridContainer } from './styles';
 import { SelectInput } from '../../components/Select/styles';
 import Button from '../../components/Button';
 import PropertiesList from '../PropertiesList';
@@ -98,10 +98,12 @@ const SearchProperties: React.FC = () => {
           </div>
         </Form>
       </FormContainer>
-      {properties &&
-        properties.map(prop => (
-          <PropertiesList key={prop.id} property={prop} />
-        ))}
+      <GridContainer>
+        {properties &&
+          properties.map(prop => (
+            <PropertiesList key={prop.id} property={prop} />
+          ))}
+      </GridContainer>
     </Container>
   );
 };

@@ -40,3 +40,19 @@ export const FormContainer = styled.main`
     max-width: 84rem;
   }
 `;
+
+export const GridContainer = styled.section`
+  display: grid;
+  /* grid-template-columns: 1fr; */
+  justify-content: center;
+  grid-gap: 5rem;
+  width: 100%;
+
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 990px;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+`;
