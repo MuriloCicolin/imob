@@ -77,14 +77,9 @@ const CreateProperties: React.FC = () => {
           <fieldset>
             <legend>Dados do Imóvel</legend>
 
-            <Input name="address" placeholder="Rua/Avenida" mask="" />
-            <Input name="number" placeholder="Número" mask="" />
-            <Input
-              name="value"
-              placeholder="R$ Valor"
-              mask="R$ 999.999,99"
-              alwaysShowMask={false}
-            />
+            <Input name="address" placeholder="Rua/Avenida" />
+            <Input name="number" placeholder="Número" />
+            <Input name="value" placeholder="R$ Valor" />
 
             <SelectInput
               name="type"

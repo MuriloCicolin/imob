@@ -6,15 +6,13 @@ import React, {
   useCallback,
 } from 'react';
 
-import InputMask, { Props } from 'react-input-mask';
-
 import { FiAlertCircle } from 'react-icons/fi';
 
 import { IconBaseProps } from 'react-icons';
 import { useField } from '@unform/core';
 import { Container, Error } from './styles';
 
-interface InputProps extends Props {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
 }
