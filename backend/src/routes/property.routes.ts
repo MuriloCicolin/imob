@@ -2,6 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 import * as Yup from 'yup';
 import { classToClass } from 'class-transformer';
+import { getCustomRepository } from 'typeorm';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import CreatePropertyService from '../services/CreatePropertyService';
 
@@ -9,6 +10,7 @@ import uploadConfig from '../config/upload';
 import ListPropertiesService from '../services/ListPropertiesService';
 import AppError from '../errors/AppError';
 import ListAllPropertiesServices from '../services/ListAllPropertiesServices';
+import PropertiesRepository from '../repositories/PropertiesRepository';
 
 const propertiesRouter = Router();
 
@@ -95,5 +97,17 @@ propertiesRouter.get('/all', ensureAuthenticated, async (request, response) => {
 
   return response.json(classToClass(properties));
 });
+
+propertiesRouter.get(
+  '/count',
+  ensureAuthenticated,
+  async (request, response) => {
+    const propertiesRepository = getCustomRepository(PropertiesRepository);
+
+    const properties = await propertiesRepository.getCountProperties();
+
+    return response.json(properties);
+  },
+);
 
 export default propertiesRouter;

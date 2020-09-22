@@ -3,7 +3,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { FormHandles } from '@unform/core';
 import { FiMail, FiLock, FiLogIn } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Container, Content, AnimationContainer, Background } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
@@ -21,6 +21,7 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
 
   const { signIn } = useAuth();
 
@@ -40,15 +41,13 @@ const SignIn: React.FC = () => {
           abortEarly: false,
         });
 
-        signIn({ email: data.email, password: data.password });
+        await signIn({ email: data.email, password: data.password });
+        history.push('/dashboard');
       } catch (err) {
         toast.error('Falha ao fazer login, verique seus dados');
-        const errors = getValidationErrors(err);
-
-        formRef.current?.setErrors(errors);
       }
     },
-    [signIn],
+    [signIn, history],
   );
 
   return (

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPower } from 'react-icons/fi';
 import { useAuth } from '../../context/AuthContext';
+import api from '../../services/api';
 
 import bgImage from '../../assets/home.png';
 
@@ -16,6 +17,13 @@ import {
 
 const Dashboard: React.FC = () => {
   const { signOut } = useAuth();
+  const [propertySum, setPropertySum] = useState(0);
+
+  useEffect(() => {
+    api.get('/properties/count').then(response => {
+      setPropertySum(response.data);
+    });
+  }, []);
 
   return (
     <Container>
@@ -32,12 +40,8 @@ const Dashboard: React.FC = () => {
       <BackgroundImage src={bgImage} />
 
       <h1>
-        Seja Bem-vindo,
-{' '}
-<br />
-        {' '}
-        O que deseja fazer ?
-</h1>
+        Seja Bem-vindo, <br /> O que deseja fazer ?
+      </h1>
 
       <ContainerButton>
         <Link to="/create">Cadastrar Imóveis</Link>
@@ -47,7 +51,7 @@ const Dashboard: React.FC = () => {
         </Link>
       </ContainerButton>
 
-      <span>Total de 250 móveis cadastrados</span>
+      <span>Total de {propertySum} imoveis cadastrados</span>
     </Container>
   );
 };

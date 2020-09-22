@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import { toast } from 'react-toastify';
 import Header from '../../components/Header';
 
 import { Container, FormContainer, GridContainer } from './styles';
@@ -44,15 +45,19 @@ const SearchProperties: React.FC = () => {
   ];
 
   const handleSearch = useCallback(async () => {
-    const response = await api.get('/properties', {
-      params: {
-        uf,
-        city,
-        type,
-      },
-    });
+    try {
+      const response = await api.get('/properties', {
+        params: {
+          uf,
+          city,
+          type,
+        },
+      });
 
-    setProperties(response.data);
+      setProperties(response.data);
+    } catch (err) {
+      toast.error('Obrigatório preencher todos os campos!');
+    }
   }, [city, type, uf]);
 
   const handleChangeCity = useCallback(data => {

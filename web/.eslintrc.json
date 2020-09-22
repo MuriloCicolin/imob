@@ -26,6 +26,8 @@
   "rules": {
     "camelcase": "off",
     "react-hooks/rules-of-hooks": "error",
+    "react/jsx-indent": "off",
+    "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
     "prettier/prettier": "error",
     "react-hooks/exhaustive-deps": "warn",

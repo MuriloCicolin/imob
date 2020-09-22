@@ -54,18 +54,6 @@ export const AnimationContainer = styled.div`
     text-align: center;
     flex-direction: column;
     align-items: center;
-
-    /* a {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      margin-top: 2rem;
-      color: #000;
-    }
-
-    a:hover {
-      color: ${shade(0.2, '#A6DCEF')};
-    } */
   }
 
   a {
