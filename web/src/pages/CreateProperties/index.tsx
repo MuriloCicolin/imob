@@ -87,7 +87,7 @@ const CreateProperties: React.FC = () => {
 
             <Input name="address" placeholder="Rua/Avenida" />
             <Input name="number" placeholder="Número" />
-            {/* <Input name="value" placeholder="R$ Valor" /> */}
+
             <InputCurrency name="value" placeholder="R$ Valor" />
 
             <SelectInput
