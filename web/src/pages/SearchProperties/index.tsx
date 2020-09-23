@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { toast } from 'react-toastify';
@@ -43,6 +43,14 @@ const SearchProperties: React.FC = () => {
     { label: 'Aluguel', value: 'Aluguel' },
     { label: 'Venda', value: 'Venda' },
   ];
+
+  useEffect(() => {
+    async function loadProperties() {
+      const response = await api.get('/properties/all');
+      setProperties(response.data);
+    }
+    loadProperties();
+  }, []);
 
   const handleSearch = useCallback(async () => {
     try {

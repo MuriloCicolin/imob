@@ -11,6 +11,7 @@ import SelectInput from '../../components/Select';
 import Button from '../../components/Button';
 import Dropzone from '../../components/Dropzone';
 import api from '../../services/api';
+import InputCurrency from '../../components/InputCurrency';
 
 interface CreatePropertyData {
   address: string;
@@ -24,6 +25,7 @@ interface CreatePropertyData {
 const CreateProperties: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const [selectedFile, setSelectedFile] = useState<File>();
+  const [valueCurrency, setValueCurrency] = useState('');
 
   const history = useHistory();
 
@@ -46,24 +48,30 @@ const CreateProperties: React.FC = () => {
 
   const handleSubmit = useCallback(
     async (data: CreatePropertyData) => {
-      const fileData = new FormData();
+      try {
+        const fileData = new FormData();
 
-      fileData.append('address', data.address);
-      fileData.append('city', data.city);
-      fileData.append('uf', data.uf);
-      fileData.append('number', String(data.number));
-      fileData.append('type', data.type);
-      fileData.append('value', String(data.value));
+        fileData.append('address', data.address);
+        fileData.append('city', data.city);
+        fileData.append('uf', data.uf);
+        fileData.append('number', String(data.number));
+        fileData.append('type', data.type);
+        fileData.append('value', String(data.value));
 
-      if (selectedFile) {
-        fileData.append('property_image', selectedFile);
+        if (selectedFile) {
+          fileData.append('property_image', selectedFile);
+        }
+
+        await api.post('/properties', fileData);
+
+        toast.success('Imóvel cadastrado com sucesso!');
+
+        history.push('/');
+      } catch (err) {
+        toast.error(
+          'Houve um erro ao cadastrar imóvel. Preencha corretamente os campos',
+        );
       }
-
-      await api.post('/properties', fileData);
-
-      toast.success('Imóvel cadastrado com sucesso!');
-
-      history.push('/');
     },
     [selectedFile, history],
   );
@@ -79,7 +87,8 @@ const CreateProperties: React.FC = () => {
 
             <Input name="address" placeholder="Rua/Avenida" />
             <Input name="number" placeholder="Número" />
-            <Input name="value" placeholder="R$ Valor" />
+            {/* <Input name="value" placeholder="R$ Valor" /> */}
+            <InputCurrency name="value" placeholder="R$ Valor" />
 
             <SelectInput
               name="type"
